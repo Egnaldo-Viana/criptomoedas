@@ -72,6 +72,14 @@ table th, table td{
   font-weight: bold;
 }
 
+.buttonMore{
+  background-color: #30beff;
+  padding: 8px 24px;
+  color: #fff;
+  margin: 14px 0;
+  border-radius: 8px;
+}
+
 /* Responsividade tabela */
 @media screen and (max-width: 600px){
   table{
@@ -121,3 +129,4 @@ td:last-child, th:last-child{
   border-radius: 0;
 }
 }
+
