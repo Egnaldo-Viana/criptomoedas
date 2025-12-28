@@ -21,6 +21,7 @@ interface CoinProps {
   formatedVolume?: string;
 }
 
+// Interface que define a estrutura da resposta da API
 interface DataProp {
   data: CoinProps[];
 }
@@ -28,25 +29,32 @@ interface DataProp {
 export function Home() {
   const [input, setInput] = React.useState('');
   const [coins, setCoins] = React.useState<CoinProps[]>([]);
+  const [offset, setOffset] = React.useState(0);
+
   const navigate = useNavigate();
 
   React.useEffect(() => {
     getData();
-  }, []);
+  }, [offset]);
 
+  // Função responsável por buscar e tratar os dados da API
   async function getData() {
     fetch(
-      'https://rest.coincap.io/v3/assets?limit=10&offset=0&apiKey=549e64704abf3fadc787a206ddcdcf914137034798207246ad3215286e3a6e9c',
+      ` https://rest.coincap.io/v3/assets?limit=10&offset=${offset}&apiKey=549e64704abf3fadc787a206ddcdcf914137034798207246ad3215286e3a6e9c`,
     )
+      // Converte a resposta para JSON
       .then((response) => response.json())
+      // Tipagem da resposta usando a interface DataProp
       .then((data: DataProp) => {
         const coinsData = data.data;
 
+        // Formatação de valores monetários (preço normal)
         const price = Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'USD',
         });
 
+        // Formatação compacta (milhões, bilhões, etc.)
         const priceCompact = Intl.NumberFormat('en-US', {
           style: 'currency',
           currency: 'USD',
@@ -65,7 +73,8 @@ export function Home() {
         });
 
         // console.log(formatedResult);
-        setCoins(formatedResult);
+        const listCoins = [...coins, ...formatedResult];
+        setCoins(listCoins);
       });
   }
 
@@ -78,7 +87,11 @@ export function Home() {
   }
 
   function handleGetMore() {
-    alert('teste');
+    if (offset === 0) {
+      setOffset(10);
+      return;
+    }
+    setOffset(offset + 10);
   }
 
   return (
