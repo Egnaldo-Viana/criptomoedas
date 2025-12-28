@@ -1,75 +1,37 @@
-# React + TypeScript + Vite
+# 📊 DevCurrency – Monitor de Criptomoedas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido durante o curso **React + TypeScript** do **Sujeito Programador**, com foco na prática de **Front-End**, consumo de APIs e organização de código com tipagem.
 
-Currently, two official plugins are available:
+A aplicação consome a API pública da **CoinCap** para exibir dados atualizados de criptomoedas, como preço, volume, valor de mercado e variação nas últimas 24 horas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Funcionalidades
+-  Listagem de criptomoedas em formato de tabela  
+-  Consumo de API externa (CoinCap)  
+-  Paginação com carregamento progressivo (“Carregar mais”)  
+-  Busca por moeda com navegação para página de detalhes  
+-  Formatação de valores monetários em USD  
+-  Estilização condicional para indicar alta ou queda em 24h  
+-  Interface responsiva e organizada  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Tecnologias utilizadas
+- **React**
+- **TypeScript**
+- **CSS Modules**
+- **React Router**
+- **Fetch API**
+- **React Icons**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💡 Objetivo
+Projeto desenvolvido para **consolidar conhecimentos em React e TypeScript**, praticando consumo de APIs, tipagem de dados, componentização e boas práticas no desenvolvimento Front-End.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Como visualizar
+Acesse o projeto online pelo link:   
+👉 **https://criptomoedas-seven.vercel.app/**
